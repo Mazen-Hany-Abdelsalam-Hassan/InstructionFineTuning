@@ -21,7 +21,5 @@ def download(Model_variant:str = 'S'):
         urllib.request.urlretrieve(url, save_dir)
         print(f"Downloaded to {save_dir}")
     return save_dir
-import torch
-torch.load()
 
 
