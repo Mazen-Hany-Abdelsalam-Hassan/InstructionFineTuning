@@ -30,6 +30,9 @@ def generate_text_simple(model, idx, max_new_tokens, context_size):
         # Get the idx of the vocab entry with the highest probability value
         idx_next = torch.argmax(probas, dim=-1, keepdim=True)  # (batch, 1)
         # Append sampled index to the running sequence
+        if idx_next  == PADDINGTOKEN:
+            idx = torch.cat((idx, idx_next), dim=1)  # (batch, n_tokens+1)
+            break
         idx = torch.cat((idx, idx_next), dim=1)  # (batch, n_tokens+1)
 
     return idx
