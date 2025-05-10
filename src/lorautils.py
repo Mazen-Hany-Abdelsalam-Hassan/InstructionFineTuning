@@ -29,7 +29,7 @@ class Linear_with_LoRA(nn.Module):
                                      , output_dim=output_dim, rank=rank, alpha=alpha)
 
     def forward(self, x):
-        return self.linaer_layer(x) + self.lora_layer(x)
+        return self.linear_layer(x) + self.lora_layer(x)
 
 
 
