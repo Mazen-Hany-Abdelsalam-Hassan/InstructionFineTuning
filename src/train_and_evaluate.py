@@ -62,7 +62,8 @@ def train(model:GPT_INSTRUCTION_FINE_TUNED ,
     #epoch_loss = dict()
     #step_loss = dict()
     model.train()
-    for epoch in num_epochs:
+    model.to(device)
+    for epoch in range( num_epochs):
         batch_loss = 0
         train_loss = 0
         for batch_idx ,(x,y) in enumerate (train_loader):
