@@ -37,7 +37,7 @@ def generate_text_simple(model, idx, max_new_tokens, context_size):
 
 def generate_text_full(text:str,
                   model:GPT_INSTRUCTION_FINE_TUNED,
-                  tokenizer:tiktoken.core.Encoding = TOKENIZER , max_new_token:int = 100,
+                  tokenizer= TOKENIZER , max_new_token:int = 100,
                   context_size = BASE_CONFIG["context_length"] ):
     encoded = tokenizer.encode(text)
     start_from = len(encoded)
@@ -48,9 +48,9 @@ def generate_text_full(text:str,
                                                   idx = encoded_tensor ,
                                                   max_new_tokens=max_new_token ,
                                                   context_size=context_size)
-    decoded_text = tokenizer.decode(generated_text_encoded.detach().to('cpu').tolist())
+    #return generated_text_encoded
+    decoded_text = tokenizer.decode(generated_text_encoded[0].to('cpu').tolist()[start_from:])
     return decoded_text
-
 
 def take_sample(template:str=SYS_prompt , num_sample:int = 10):
     df = pd.read_csv(test_df_dir)
