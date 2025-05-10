@@ -48,7 +48,7 @@ def generate_text_full(text:str,
                                                   idx = encoded_tensor ,
                                                   max_new_tokens=max_new_token ,
                                                   context_size=context_size)
-    decoded_text = tokenizer.decode(generated_text_encoded.detach().to('cpu').tolist()[start_from:])
+    decoded_text = tokenizer.decode(generated_text_encoded.detach().to('cpu').tolist())
     return decoded_text
 
 
