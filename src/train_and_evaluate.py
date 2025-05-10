@@ -78,7 +78,7 @@ def train(model:GPT_INSTRUCTION_FINE_TUNED ,
             if batch_idx % log_freq ==0:
                 sample_val_loss = evaluate(loader=val_loader,model=model ,
                                            device=device , num_batch=num_batch )
-                print(f" epoch num {epoch + 1}  step num {batch_idx} loss training ={batch_loss / step} , val_loss = {sample_val_loss}")
+                print(f" epoch num {epoch + 1}  step num {batch_idx} / {len(train_loader)} loss training ={batch_loss / step} , val_loss = {sample_val_loss}")
                 visual_inspection(model=model)
 
                 batch_loss = 0
