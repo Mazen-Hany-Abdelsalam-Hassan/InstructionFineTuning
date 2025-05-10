@@ -56,8 +56,8 @@ def visual_inspection(model:GPT_INSTRUCTION_FINE_TUNED ,tokenizer = TOKENIZER
 def train(model:GPT_INSTRUCTION_FINE_TUNED ,
           train_loader:DataLoader , val_loader:DataLoader ,
          optimizer:torch.optim,num_epochs:int=2 ,
-          log_freq:int=100 ,
-          num_batch:int = 50 ,
+          log_freq:int=50 ,
+          num_batch:int = 10 ,
           device = DEVICE):
     #epoch_loss = dict()
     #step_loss = dict()
@@ -66,24 +66,27 @@ def train(model:GPT_INSTRUCTION_FINE_TUNED ,
     for epoch in range( num_epochs):
         batch_loss = 0
         train_loss = 0
+        step = 0
         for batch_idx ,(x,y) in enumerate (train_loader):
             optimizer.zero_grad()
             loss = loss_on_batch(model=model , x=x , y = y , device=device)
             loss.backward()
             optimizer.step()
+            step+=1
             batch_loss+=loss.item()
             train_loss+=loss.item()
             if batch_idx % log_freq ==0:
                 sample_val_loss = evaluate(loader=val_loader,model=model ,
                                            device=device , num_batch=num_batch )
-                visual_inspection(model=model)
-                print(f" epoch num {epoch+1}  step num {batch_idx} loss training ={batch_loss/log_freq} , val_loss = {sample_val_loss}")
+                #visual_inspection(model=model)
+                print(f" epoch num {epoch+1}  step num {batch_idx} loss training ={batch_loss/step} , val_loss = {sample_val_loss}")
                 batch_loss = 0
+                step = 0
 
 
         val_loss = evaluate(loader=val_loader , model=model , device=device , num_batch=None)
         print(f"epoch num {epoch+1} val_loss = {val_loss} , train_loss = {train_loss /len(val_loader)}")
-        visual_inspection(model=model , num_sample=25)
+        #visual_inspection(model=model , num_sample=25)
 
 
 
