@@ -27,7 +27,7 @@ class GPT_INSTRUCTION_FINE_TUNED(Module):
 
     def _prepare_model(self):
         for _, layer in self.model.named_parameters():
-            layer.requirs_grad = False
+            layer.requires_grad = False
         Replace_Linear(model=self.model, rank=self.rank, alpha=self.alpha)
 
     def forward(self, x):
