@@ -42,7 +42,7 @@ def generate_text_full(text:str,
     encoded = tokenizer.encode(text)
     start_from = len(encoded)
     encoded_tensor = torch.tensor(encoded).unsqueeze(0)
-    encoded_tensor.to(DEVICE)
+    encoded_tensor = encoded_tensor.to(DEVICE)
     model.to(DEVICE)
     generated_text_encoded = generate_text_simple(model= model,
                                                   idx = encoded_tensor ,
