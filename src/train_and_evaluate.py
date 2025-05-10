@@ -78,15 +78,16 @@ def train(model:GPT_INSTRUCTION_FINE_TUNED ,
             if batch_idx % log_freq ==0:
                 sample_val_loss = evaluate(loader=val_loader,model=model ,
                                            device=device , num_batch=num_batch )
-                #visual_inspection(model=model)
-                print(f" epoch num {epoch+1}  step num {batch_idx} loss training ={batch_loss/step} , val_loss = {sample_val_loss}")
+                print(f" epoch num {epoch + 1}  step num {batch_idx} loss training ={batch_loss / step} , val_loss = {sample_val_loss}")
+                visual_inspection(model=model)
+
                 batch_loss = 0
                 step = 0
 
 
         val_loss = evaluate(loader=val_loader , model=model , device=device , num_batch=None)
         print(f"epoch num {epoch+1} val_loss = {val_loss} , train_loss = {train_loss /len(val_loader)}")
-        #visual_inspection(model=model , num_sample=25)
+        visual_inspection(model=model , num_sample=10)
 
 
 
