@@ -1,6 +1,8 @@
 import os
 import tiktoken
+import torch
 
+DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 MODEL_PATHS = {
               "S" : "gpt2-small-124M.pth",
