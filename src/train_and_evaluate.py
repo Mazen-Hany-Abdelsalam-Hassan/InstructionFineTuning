@@ -46,7 +46,8 @@ def visual_inspection(model:GPT_INSTRUCTION_FINE_TUNED ,tokenizer = TOKENIZER
                                      model=model,
                                      tokenizer=tokenizer,
                                      max_new_token=max_new_tokens)
-        print(f"generated_response{text_generated} \n true value {y} ")
+
+        print(f"generated_response{text_generated} \n ground_truth_reponse{y} ")
 
 
     model.train()
