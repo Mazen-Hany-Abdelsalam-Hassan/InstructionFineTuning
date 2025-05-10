@@ -41,7 +41,7 @@ def visual_inspection(model:GPT_INSTRUCTION_FINE_TUNED ,tokenizer = TOKENIZER
                       ,num_sample:int = 5,max_new_tokens:int= 100):
     model.eval()
     samples = take_sample(num_sample=num_sample)
-    for x,y  in samples:
+    for x,y  in zip(samples[0],samples[1]):
         text_generated= generate_text_full(text=x,
                                      model=model,
                                      tokenizer=tokenizer,
