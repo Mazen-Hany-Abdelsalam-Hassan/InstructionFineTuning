@@ -10,7 +10,7 @@ def loss_on_batch(model:GPT_INSTRUCTION_FINE_TUNED,
     x = x.to(device)
     y = y.to(device)
     logits = model(x)
-    loss = cross_entropy(logits.squeeze(0,1) , y.squeeze())
+    loss = cross_entropy(logits.flatten(0,1) , y.flatten())
     return  loss
 
 def evaluate(loader:DataLoader ,
