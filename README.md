@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Instruction Fine-Tuning with LoRA Adapters</title>
+  <title>Instruction Fine-Tuning with LoRA Adapters on Text2SQL</title>
 </head>
 <body>
 
@@ -43,17 +43,13 @@ InstructionFineTuning/
 ├── requirements.txt              # Python dependencies
   </pre>
 
-  <h2>📓 Installation</h2>
+  <h2>📓 How to use the repo</h2>
   <p>Install dependencies using:</p>
   <pre>
 pip install -r requirements.txt
   </pre>
   <p>Clone and setup the project:</p>
-  <pre>
-git clone &lt;repository-url&gt;
-cd InstructionFineTuning
-pip install -e .
-  </pre>
+  <p>  Follow InstructionFineTuneSQL Notebook</p>
 
   <h2>🧠 How It Works</h2>
   <ul>
@@ -62,6 +58,7 @@ pip install -e .
     <li>Prepares instruction datasets for supervised training</li>
     <li>Implements full training loop with evaluation metrics and checkpoint management</li>
     <li>Provides optimized inference pipeline for prediction</li>
+    <li>As a learining task I choose text 2 SQL task</li>
   </ul>
 
   <h2>⚙️ Configuration</h2>
