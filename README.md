@@ -44,9 +44,9 @@ InstructionFineTuning/
 
   <h2>📓 How to use the repo</h2>
   <p>Install dependencies using:</p>
-  <pre>
-pip install -r requirements.txt
-  </pre>
+  <p>
+  Any enviroment with pytorch will be fine.
+  </p>
   <p>Clone and setup the project:</p>
   <p>  Follow InstructionFineTuneSQL Notebook</p>
 
