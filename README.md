@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Instruction Fine-Tuning with LoRA Adapters on Text2SQL</title>
 </head>
 <body>
 
