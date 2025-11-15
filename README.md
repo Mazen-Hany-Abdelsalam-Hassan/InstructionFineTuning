@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <h1>Instruction Fine-Tuning with LoRA Adapters</h1>
+  <h1>Instruction Fine-Tuning with LoRA Adapters on Text2SQL</h1>
 
   <p>
     A professional implementation of instruction fine-tuning for Large Language Models using 
